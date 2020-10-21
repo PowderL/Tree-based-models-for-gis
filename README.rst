@@ -10,8 +10,6 @@ forest-gis requires:
 - NumPy (>= 1.15.0)
 - SciPy (>= 0.19.1)
 - joblib (>= 0.14)
-- threadpoolctl (>= 2.0.0)
-
 
 If you already have a working installation of numpy and scipy,
 the easiest way to install forest-gis is using ``pip``   ::
