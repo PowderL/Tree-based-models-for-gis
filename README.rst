@@ -4,7 +4,7 @@ Installation
 Dependencies
 ~~~~~~~~~~~~
 
-scikit-learn requires:
+forest-gis requires:
 
 - Python (>= 3.6)
 - NumPy (>= 1.15.0)
@@ -14,7 +14,7 @@ scikit-learn requires:
 
 
 If you already have a working installation of numpy and scipy,
-the easiest way to install scikit-learn is using ``pip``   ::
+the easiest way to install forest-gis is using ``pip``   ::
 
     pip install -U forest-gis
 
