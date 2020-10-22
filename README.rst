@@ -73,19 +73,22 @@ Compute local variable importance based on decrease in node impurity ::
 	from forest.ensemble import RandomForestRegressor
 	rf = RandomForestRegressor(500, max_features=0.3)
 	rf.fit(train_x, train_y)
-	local_variable_importance = r_t.compute_feature_importance(X,Y,partition_feature = partition_feature, method = "lvig_based_on_impurity")
+	local_variable_importance = r_t.compute_feature_importance(X,Y,
+	partition_feature = partition_feature, method = "lvig_based_on_impurity")
 	
 or compute local variable importance based on decrease in accuracy ::
 
 	from forest.ensemble import RandomForestRegressor
 	rf = meda.lovim(500, max_features=0.3)
 	rf.fit(train_x, train_y)
-	local_variable_importance = r_m.compute_feature_importance(X,Y,partition_feature = partition_feature, method = "lvig_based_on_accuracy")
+	local_variable_importance = r_m.compute_feature_importance(X,Y,p
+	artition_feature = partition_feature, method = "lvig_based_on_accuracy")
 
 to achieve lower computation cost, we provide a cython version based on decrease in node impurity ::
     
-    from forest.ensemble import RandomForestRegressor
+	from forest.ensemble import RandomForestRegressor
 	rf = meda.lovim(500, max_features=0.3)
 	rf.fit(train_x, train_y)
-	local_variable_importance = r_m.compute_feature_importance(X,Y,partition_feature = partition_feature, method = "lvig_based_on_impurity_cython_version")
+	local_variable_importance = r_m.compute_feature_importance(X,Y,
+	partition_feature = partition_feature, method = "lvig_based_on_impurity_cython_version")
 
