@@ -42,8 +42,8 @@ At present, build ``forest-gis`` from source as wheel files are not provied for 
 
 Build forest-gis from source
 ----------------------------
-Before you install the ``forest-gis`` from source, you need to update for Windows and Linux
-cython_ to the newest version. and then run ::
+Before you install the ``forest-gis`` from source, you need to update 
+cython_ for Windows and Linux to the newest version. and then run ::
 
     pip install --verbose .
 
