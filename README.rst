@@ -46,7 +46,22 @@ cython_ to the newest version. For Windows you can run ::
 
     pip install --verbose .
 
-For macOS, 
+For macOS, first install the macOS command line tools ::
+    
+    brew install libomp
+    
+Set the following environment variables ::
+    
+    export CC=/usr/bin/clang
+    export CXX=/usr/bin/clang++
+    export CPPFLAGS="$CPPFLAGS -Xpreprocessor -fopenmp"
+    export CFLAGS="$CFLAGS -I/usr/local/opt/libomp/include"
+    export CXXFLAGS="$CXXFLAGS -I/usr/local/opt/libomp/include"
+    export LDFLAGS="$LDFLAGS -Wl,-rpath,/usr/local/opt/libomp/lib -L/usr/local/opt/libomp/lib -lomp"
+
+Finally, build forest-gis ::
+    
+    pip install --verbose .
 
 .. _cython: https://cython.org/
 
