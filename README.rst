@@ -25,14 +25,15 @@ or ``conda``::
     conda install -c conda-forge forest-gis
 For linux:
 ------------
-At present, on the pypi_, we only provide wheel files supporting
+At present, on the pypi_, we only provide wheel_ files supporting
 Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the
-wheel files for Linux 64-bit are also provided, you may encouter
-problems if your linux system has a lower version of ``glibc`` than
-ubantu 18.x because the wheel files was just compiled on ubantu 18.x
+wheel_ files for Linux 64-bit are also provided, you may encouter
+problems if your Linux system has a lower version of ``glibc`` than
+ubantu 18.x because the wheel_ files was just compiled on ubantu 18.x
 If you get wrong when use ``pip`` to install ``forest-gis``, you can
-try to install forest-gis from source.
+try to install "forest-gis" from source.
 
+.. _wheel: https://wheel.readthedocs.io/en/stable
 .. _pypi: https://pypi.org/project/forest-gis
 
 For macOS:
