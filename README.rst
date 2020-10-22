@@ -27,7 +27,7 @@ For linux:
 ------------
 At present, on the pypi_, we only provide wheel files supporting
 Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the
-wheel files for linux 64-bit are also provided, you may encouter
+wheel files for Linux 64-bit are also provided, you may encouter
 problems if your linux system has a lower version of ``glibc`` than
 ubantu 18.x because the wheel files was just compiled on ubantu 18.x
 If you get wrong when use ``pip`` to install ``forest-gis``, you can
@@ -41,8 +41,8 @@ At present, build ``forest-gis`` from source as wheel files are not provied for 
 
 Build forest-gis from source
 ----------------------------
-Before you install the ``forest-gis`` from source, you need to update
-cython_ to the newest version. For Windows you can run ::
+Before you install the ``forest-gis`` from source, you need to update for Windows and Linux
+cython_ to the newest version. and then run ::
 
     pip install --verbose .
 
