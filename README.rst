@@ -26,7 +26,7 @@ or ``conda``::
 For linux:
 ==========
 
-At present, on the [pypi](https://pypi.org/project/forest-gis), we only provide wheel files supporting Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the wheel files for linux 64-bit are also provided, you may encouter problems if your linux system has a lower version of ``glibc`` than ubantu 18.x because the wheel files was just compiled on ubantu 18.x. If you get wrong when use ``pip`` to install ``forest-gis``, you can try to install forest-gis from source.
+At present, on the [pypi] (https://pypi.org/project/forest-gis), we only provide wheel files supporting Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the wheel files for linux 64-bit are also provided, you may encouter problems if your linux system has a lower version of ``glibc`` than ubantu 18.x because the wheel files was just compiled on ubantu 18.x. If you get wrong when use ``pip`` to install ``forest-gis``, you can try to install forest-gis from source.
 
 For macOS:
 =========
