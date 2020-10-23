@@ -224,7 +224,7 @@ def setup_package():
                     version=VERSION,
                     long_description=LONG_DESCRIPTION,
                     classifiers=['Intended Audience :: Science/Research',
-                                 'Intended Audience :: Developers/Researchers',
+                                 'Intended Audience :: Developers',
                                  'License :: OSI Approved',
                                  'Programming Language :: C',
                                  'Programming Language :: Python',
