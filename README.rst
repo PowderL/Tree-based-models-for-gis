@@ -3,6 +3,10 @@
 .. |PythonVersion| image:: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
 .. _PythonVersion: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
 Installation
+
+.. image:: https://pepy.tech/badge/auditwheel/month
+    :target: https://pepy.tech/project/auditwheel/month
+
 ^^^^^^^^^^^^
 
 Dependencies
