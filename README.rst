@@ -45,7 +45,7 @@ try to install "forest-gis" from source.
 
 For macOS:
 ------------
-At present, build ``forest-gis`` from source as wheel files are not provied for macOS.
+At present, install ``forest-gis``  from wheel files are not provied for macOS.
 
 Build forest-gis from source
 ----------------------------
