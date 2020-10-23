@@ -1,4 +1,4 @@
-|PythonVersion|_|Downloads|
+|PythonVersion|_ |Downloads|_
 
 .. |Downloads| image:: https://pepy.tech/badge/auditwheel/month
     :target: https://pepy.tech/project/auditwheel/month
