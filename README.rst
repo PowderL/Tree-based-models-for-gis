@@ -40,12 +40,12 @@ ubantu 18.x because the wheel_ files was just compiled on ubantu 18.x
 If you get wrong when use ``pip`` to install ``forest-gis``, you can
 try to install "forest-gis" from source.
 
-.. _wheel: https://wheel.readthedocs.io/en/stable
-.. _pypi: https://pypi.org/project/forest-gis
-
 For macOS:
 ------------
-At present, install ``forest-gis``  from wheel files are not provied for macOS.
+At present, install ``forest-gis``  from wheel_ files are not provied for macOS.
+
+.. _wheel: https://wheel.readthedocs.io/en/stable
+.. _pypi: https://pypi.org/project/forest-gis
 
 Build forest-gis from source
 ----------------------------
