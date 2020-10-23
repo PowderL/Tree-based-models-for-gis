@@ -50,9 +50,12 @@ At present, install ``forest-gis``  from wheel_ files are not provied for macOS.
 
 Build forest-gis from source
 ----------------------------
-Before you install the ``forest-gis`` from source, you need to first
-install or update cython_ for Windows and Linux to the newest version
-and then run ::
+
+For Windows and Linux
+
+**Necessarily**, before you install the ``forest-gis`` from source, 
+you need to first install or update cython_ and numpy_  to the newest
+version and then run ::
 
     pip install --verbose .
 
@@ -74,7 +77,7 @@ Finally, build forest-gis ::
     pip install --verbose .
 
 .. _cython: https://cython.org/
-
+.. _numpy: https://numpy.org/
 User Guide
 ^^^^^^^^^^^^
 
