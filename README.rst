@@ -30,7 +30,7 @@ to install forest-gis is using ``pip`` ::
 or ``conda`` ::
 
     conda install -c conda-forge forest-gis
-For linux :
+For linux
 ------------
 At present, on the pypi_, we only provide wheel_ files supporting
 Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the
@@ -40,7 +40,7 @@ ubantu 18.x because the wheel_ files was just compiled on ubantu 18.x
 If you get wrong when use ``pip`` to install ``forest-gis``, you can
 try to install "forest-gis" from source.
 
-For macOS :
+For macOS
 ------------
 At present, install ``forest-gis``  from wheel_ files are not provied for macOS.
 
