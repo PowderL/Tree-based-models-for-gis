@@ -23,7 +23,7 @@ For Windwos
 
 If you already have a working installation of numpy and scipy,
 and you plateform is Windows 32-bit or 64-bit the easiest way 
-to install forest-gis is using ``pip``::
+to install forest-gis is using ``pip`` ::
 
     pip install -U forest-gis
 
