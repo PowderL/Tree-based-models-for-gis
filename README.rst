@@ -30,6 +30,7 @@ to install forest-gis is using ``pip`` ::
 or ``conda`` ::
 
     conda install -c conda-forge forest-gis
+
 For linux
 ------------
 At present, on the pypi_, we only provide wheel_ files supporting
