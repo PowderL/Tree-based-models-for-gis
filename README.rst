@@ -57,6 +57,8 @@ For Windows and Linux
 you need to first install or update cython_ and numpy_  to the newest
 version and then run ::
 
+    pip install cython
+    pip install numpy
     pip install --verbose .
 
 For macOS, first install the macOS command line tools ::
