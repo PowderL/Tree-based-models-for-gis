@@ -89,25 +89,25 @@ User Guide
 
 Compute local variable importance based on decrease in node impurity ::
 
+    # use Boston house-price datasets as an ex
+    from sklearn.datasets import load_boston
+    train_x, train_y = load_boston(return_X_y=True)
+    # partition_feature could a column from train_x
+    partition_feature = train_x[:, 1]
 	from forest.ensemble import RandomForestRegressor
 	rf = RandomForestRegressor(500, max_features=0.3)
 	rf.fit(train_x, train_y)
-	local_variable_importance = rf.lvig(X, Y, partition_feature = partition_feature, 
+	local_variable_importance = rf.lvig(train_x, train_y, partition_feature = partition_feature,
 			method = "lvig_based_impurity")
 	
 or compute local variable importance based on decrease in accuracy ::
 
-	from forest.ensemble import RandomForestRegressor
-	rf = RandomForestRegressor(500, max_features=0.3)
-	rf.fit(train_x, train_y)
-	local_variable_importance = rf.lvig(X, Y, partition_feature = partition_feature, 
+	local_variable_importance = rf.lvig(train_x, train_y, partition_feature = partition_feature,
 			method = "lvig_based_accuracy")
 
 to achieve lower computation cost, we provide a cython_ version based on decrease in node impurity ::
-    
-	from forest.ensemble import RandomForestRegressor
-	rf = RandomForestRegressor(500, max_features=0.3)
+
 	rf.fit(train_x, train_y)
-	local_variable_importance = rf.lvig(X, Y, partition_feature = partition_feature, 
+	local_variable_importance = rf.lvig(train_x, train_y, partition_feature = partition_feature,
 		method = "lvig_based_impurity_cython_version")
 
