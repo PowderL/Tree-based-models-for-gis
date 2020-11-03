@@ -35,7 +35,7 @@ or ``conda`` ::
 
     conda install -c conda-forge forest-gis
 
-For linux
+For Linux
 ------------
 At present, on the pypi_, we only provide wheel_ files supporting
 Python3.6, 3.7, 3.8 for Windows 32-bit, Windows 64-bit. Though the
@@ -107,7 +107,6 @@ or compute local variable importance based on decrease in accuracy ::
 
 to achieve lower computation cost, we provide a cython_ version based on decrease in node impurity ::
 
-	rf.fit(train_x, train_y)
 	local_variable_importance = rf.lvig(train_x, train_y, partition_feature = partition_feature,
 		method = "lvig_based_impurity_cython_version")
 
