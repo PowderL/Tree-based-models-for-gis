@@ -89,7 +89,7 @@ User Guide
 
 Compute local variable importance based on decrease in node impurity ::
 
-    # use Boston house-price datasets as an ex
+    # use Boston house-price datasets as an example
     from sklearn.datasets import load_boston
     train_x, train_y = load_boston(return_X_y=True)
     # partition_feature could a column from train_x
