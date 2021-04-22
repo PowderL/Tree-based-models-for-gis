@@ -938,7 +938,21 @@ class ForestRegressor(RegressorMixin, BaseForest, metaclass=ABCMeta):
             sum_of_importance_re = feature_importances_re.sum(axis=1).reshape(feature_importances_re.shape[0], 1)
             feature_importances_re = feature_importances_re / (sum_of_importance_re+(sum_of_importance_re == 0))
         return pd.DataFrame(feature_importances_re, columns=columns, index=unique_element)
-
+    def compute_feature_contribution(self, X, y):
+        #columns = [i for i in range(self.n_features_)]
+        X = np.asarray(X).astype("float32")
+        y = np.asarray(y).ravel().astype("float64")
+        if X.shape[0] != y.shape[0]:
+            raise ValueError ("The input X and y have different number of instance")
+        if X.shape[1] != self.n_features_:
+            raise ValueError('The input X has different number of features with the trained model')
+        results = Parallel(n_jobs=self.n_jobs, verbose=self.verbose,
+            **_joblib_parallel_args(prefer='threads'))(
+            delayed(tree.compute_feature_contribution)(X, y)
+            for tree in self.estimators_)
+        feature_contribution = np.vstack(results)
+        feature_contribution_re = np.average(feature_contribution, axis=0)
+        return(feature_contribution_re)
 class RandomForestClassifier(ForestClassifier):
     """
     A random forest classifier.
