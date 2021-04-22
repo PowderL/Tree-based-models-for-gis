@@ -1169,12 +1169,12 @@ cdef class Tree:
                 while node.left_child != _TREE_LEAF:
                     if X_ndarray[sample_idx, node.feature] <= node.threshold:
                         prediction_error_update = fabs(y_value - self.value[node.left_child])
-                        feature_contribution[sample_idx, node.feature] = prediction_error - prediction_error_update
+                        feature_contribution[sample_idx, node.feature] += prediction_error - prediction_error_update
                         prediction_error = prediction_error_update
                         node = &self.nodes[node.left_child]
                     else:
                         prediction_error_update = fabs(y_value - self.value[node.right_child])
-                        feature_contribution[sample_idx, node.feature] = prediction_error - prediction_error_update
+                        feature_contribution[sample_idx, node.feature] += prediction_error - prediction_error_update
                         prediction_error = prediction_error_update
                         node = &self.nodes[node.right_child]
         return (feature_contribution)
