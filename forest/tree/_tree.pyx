@@ -1147,14 +1147,38 @@ cdef class Tree:
                         importances[subs_i, node.feature] = (node_impurity[subs_i, node_i] -
                             node_impurity[subs_i, node.left_child]- node_impurity[subs_i, node.right_child])
         return (importances)
-#    cpdef DOUBLE_t[:,:] variable_interaction(self, object X):
-#        return (_variable_interaction(X))
-#    cdef inline DOUBLE_t(self, object X):
-#        cdef DITYPE_t[:,:] X_ndarray = X
-#        cdef Node* node = self.node
-#        cdef SIZE_t samples_num = X_ndarray
-#        cdef DOUBLE_t[:,:] variable_interaction
-#        with nogil:
+
+    cpdef DOUBLE_t[:,:] compute_feature_contribution(self, object X, np.ndarray y):
+        cdef:
+            DTYPE_t[:, :] X_ndarray = X
+            DOUBLE_t[:] y_ndarray = y
+            DOUBLE_t[:, :] feature_contribution
+            #DOUBLE_t[:] node_value = self.value
+            DOUBLE_t y_value
+            DOUBLE_t prediction_error
+            DOUBLE_t prediction_error_update
+            SIZE_t node_num = self.node_count
+            SIZE_t sample_idx
+            Node* node = NULL
+        feature_contribution = np.zeros((X_ndarray.shape[0], self.n_features))
+        with nogil:
+            for sample_idx in range(X_ndarray.shape[0]):
+                node = self.nodes
+                y_value = y_ndarray[sample_idx]
+                prediction_error = fabs(y_value - self.value[0])
+                while node.left_child != _TREE_LEAF:
+                    if X_ndarray[sample_idx, node.feature] <= node.threshold:
+                        prediction_error_update = fabs(y_value - self.value[node.left_child])
+                        feature_contribution[sample_idx, node.feature] = prediction_error - prediction_error_update
+                        prediction_error = prediction_error_update
+                        node = &self.nodes[node.left_child]
+                    else:
+                        prediction_error_update = fabs(y_value - self.value[node.right_child])
+                        feature_contribution[sample_idx, node.feature] = prediction_error - prediction_error_update
+                        prediction_error = prediction_error_update
+                        node = &self.nodes[node.right_child]
+        return (feature_contribution)
+
     cdef np.ndarray _get_value_ndarray(self):
         """Wraps value as a 3-d NumPy array.
 
