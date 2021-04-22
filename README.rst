@@ -9,6 +9,7 @@ forest-gis
 .. _PythonVersion: https://img.shields.io/badge/python-3.6%20%7C%203.7%20%7C%203.8-blue
 .. |pypi| image:: https://badge.fury.io/py/forest-gis.svg
 .. _pypi : https://pypi.org/project/forest-gis
+
 Installation
 ^^^^^^^^^^^^
 
@@ -84,6 +85,7 @@ Finally, build forest-gis ::
 
 .. _cython: https://cython.org/
 .. _numpy: https://numpy.org/
+
 User Guide
 ^^^^^^^^^^^^
 
