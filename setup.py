@@ -32,12 +32,12 @@ with open('README.rst') as f:
     LONG_DESCRIPTION = f.read()
 MAINTAINER = 'Tao Li'
 MAINTAINER_EMAIL = 'lp1559345469@gmail.com'
-URL = 'https://github.com/PowderL/forest-gis'
+URL = 'https://github.com/PowderL/Tree-based-machine-learning-for-gis'
 DOWNLOAD_URL = 'https://pypi.org/project/forest-gis/#files'
 LICENSE = 'new BSD'
 PROJECT_URLS = {
-    'Bug Tracker': 'https://github.com/PowderL/forest-gis',
-    'Source Code': 'https://github.com/PowderL/forest-gis'
+    'Bug Tracker': 'https://github.com/PowderL/Tree-based-machine-learning-for-gis',
+    'Source Code': 'https://github.com/PowderL/Tree-based-machine-learning-for-gis'
 }
 
 # We can actually import a restricted version of forest that
@@ -192,7 +192,7 @@ def check_package_status(package, min_version):
 
     instructions = ("Installation instructions are available on the "
                     "forest-gis website: "
-                    "https://github.com/PowderL/forest-gis\n")
+                    "https://github.com/PowderL/Tree-based-machine-learning-for-gis\n")
 
     if package_status['up_to_date'] is False:
         if package_status['version']:
@@ -217,6 +217,7 @@ def setup_package():
                     project_urls=PROJECT_URLS,
                     version=VERSION,
                     long_description=LONG_DESCRIPTION,
+                    long_description_content_type="text/x-rst",
                     classifiers=['Intended Audience :: Science/Research',
                                  'Intended Audience :: Developers',
                                  'License :: OSI Approved',
