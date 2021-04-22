@@ -108,6 +108,7 @@ Or compute local variable importance based on decrease in accuracy ::
 		method = "lvig_based_accuracy")
 
 To achieve lower computation cost, we provide a cython_ version based on decrease in node impurity ::
+
     local_variable_importance = rf.lvig(train_x, train_y, partition_feature = partition_feature,
 	method = "lvig_based_impurity_cython_version")
 
