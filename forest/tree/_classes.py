@@ -699,6 +699,9 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
                 TVI_set_k = np.mean(spse_sp_set_k - sse_sp_set)
                 tree_feature_importance_array[0, each_set, feature_k] = TVI_set_k
         return tree_feature_importance_array
+
+    def compute_feature_contribution(self, X, y):
+        return(np.asarray(self.tree_.compute_feature_contribution(X, y))[None, :, :])
 # =============================================================================
 # Public estimators
 # =============================================================================
