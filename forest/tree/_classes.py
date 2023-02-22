@@ -702,6 +702,8 @@ class BaseDecisionTree(MultiOutputMixin, BaseEstimator, metaclass=ABCMeta):
 
     def compute_feature_contribution(self, X, y):
         return(np.asarray(self.tree_.compute_feature_contribution(X, y))[None, :, :])
+    def compute_feature_contribution_tree(self, X):
+        return (np.asarray(self.tree_.compute_feature_contribution_tree(X))[None, :, :])
 # =============================================================================
 # Public estimators
 # =============================================================================

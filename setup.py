@@ -1,3 +1,4 @@
+import forest
 import sys
 import os
 import platform
@@ -42,7 +43,6 @@ PROJECT_URLS = {
 
 # We can actually import a restricted version of forest that
 # does not need the compiled code
-import forest
 import forest._build_utils.min_dependencies as min_deps  # noqa
 
 

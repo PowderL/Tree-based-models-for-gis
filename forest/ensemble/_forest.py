@@ -953,6 +953,17 @@ class ForestRegressor(RegressorMixin, BaseForest, metaclass=ABCMeta):
         feature_contribution = np.vstack(results)
         feature_contribution_re = np.average(feature_contribution, axis=0)
         return(feature_contribution_re)
+    def compute_feature_contribution_tree(self, X):
+        X = np.asarray(X).astype("float32")
+        if X.shape[1] != self.n_features_:
+            raise ValueError('The input X has different number of features with the trained model')
+        results = Parallel(n_jobs=self.n_jobs, verbose=self.verbose,
+            **_joblib_parallel_args(prefer='threads'))(
+            delayed(tree.compute_feature_contribution_tree)(X)
+            for tree in self.estimators_)
+        feature_contribution = np.vstack(results)
+        feature_contribution_re = np.average(feature_contribution, axis=0)
+        return(feature_contribution_re)
 class RandomForestClassifier(ForestClassifier):
     """
     A random forest classifier.

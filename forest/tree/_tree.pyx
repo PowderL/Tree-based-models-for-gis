@@ -1178,7 +1178,58 @@ cdef class Tree:
                         prediction_error = prediction_error_update
                         node = &self.nodes[node.right_child]
         return (feature_contribution)
-
+    cpdef DOUBLE_t[:, :] compute_feature_contribution_v(self, object X, np.ndarray y):
+        cdef:
+            DTYPE_t[:, :] X_ndarray = X
+            DOUBLE_t[:] y_ndarray = y
+            DOUBLE_t[:, :] feature_contribution
+            #DOUBLE_t[:] node_value = self.value
+            DOUBLE_t y_value
+            DOUBLE_t relative_accurate
+            SIZE_t node_num = self.node_count
+            SIZE_t sample_idx
+            Node* node = NULL
+        feature_contribution = np.zeros((X_ndarray.shape[0], self.n_features))
+        with nogil:
+            for sample_idx in range(X_ndarray.shape[0]):
+                node = self.nodes
+                y_value = y_ndarray[sample_idx]
+                while node.left_child != _TREE_LEAF:
+                    if X_ndarray[sample_idx, node.feature] <= node.threshold:
+                        relative_accurate = fabs(y_value - self.value[node.right_child]) - fabs(y_value - self.value[node.left_child])
+                        feature_contribution[sample_idx, node.feature] += relative_accurate
+                        node = &self.nodes[node.left_child]
+                    else:
+                        relative_accurate = fabs(y_value - self.value[node.left_child]) - fabs(y_value - self.value[node.right_child])
+                        feature_contribution[sample_idx, node.feature] += relative_accurate
+                        node = &self.nodes[node.right_child]
+        return (feature_contribution)
+    cpdef DOUBLE_t[:, :] compute_feature_contribution_tree(self, object X):
+        cdef:
+            DTYPE_t[:, :] X_ndarray = X
+            #DOUBLE_t[:] y_ndarray = y
+            DOUBLE_t[:, :] feature_contribution
+            #DOUBLE_t[:] node_value = self.value
+            DOUBLE_t prediction_infront_split
+            SIZE_t node_num = self.node_count
+            SIZE_t sample_idx
+            Node* node = NULL
+        feature_contribution = np.zeros((X_ndarray.shape[0], self.n_features))
+        with nogil:
+            for sample_idx in range(X_ndarray.shape[0]):
+                node = self.nodes
+                prediction_infront_split = self.value[0]
+                #y_value = y_ndarray[sample_idx]
+                while node.left_child != _TREE_LEAF:
+                    if X_ndarray[sample_idx, node.feature] <= node.threshold:
+                        feature_contribution[sample_idx, node.feature] += self.value[node.left_child] - prediction_infront_split
+                        prediction_infront_split = self.value[node.left_child]
+                        node = &self.nodes[node.left_child]
+                    else:
+                        feature_contribution[sample_idx, node.feature] += self.value[node.right_child] - prediction_infront_split
+                        prediction_infront_split = self.value[node.right_child]
+                        node = &self.nodes[node.right_child]
+        return (feature_contribution)               
     cdef np.ndarray _get_value_ndarray(self):
         """Wraps value as a 3-d NumPy array.
 

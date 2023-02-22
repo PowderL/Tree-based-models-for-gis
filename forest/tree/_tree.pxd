@@ -84,6 +84,8 @@ cdef class Tree:
     cpdef DOUBLE_t[:,:] local_variable_importance_g(self, object X, object y, object grouping)
     cdef  DOUBLE_t[:,:] _parse(self, object X, np.ndarray y, np.ndarray grouping)
     cpdef DOUBLE_t[:, :] compute_feature_contribution(self, object X, np.ndarray y)
+    cpdef DOUBLE_t[:, :] compute_feature_contribution_v(self, object X, np.ndarray y)
+    cpdef DOUBLE_t[:, :] compute_feature_contribution_tree(self, object X)
 
 # =============================================================================
 # Tree builder
