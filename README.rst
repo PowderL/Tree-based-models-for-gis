@@ -12,4 +12,4 @@ forest-gis
 
 Notes
 ^^^^^^^^^^^^
-Now this repository was dismissed, and all works have be transfered to `forest-lvig<https://github.com/PowderL/forest-lvig>`_
+Now this repository was dismissed, and all works have be transfered to `forest-lvig<https://github.com/PowderL/forest-lvig>`
